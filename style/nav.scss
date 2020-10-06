@@ -1,0 +1,78 @@
+/* Navbar */
+nav.menu {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    font-family: 'Lato', sans-serif;
+    color: var(--header-font-color);
+    transition: background .3s ease-in-out;
+
+    animation: 1s navAppearAnimation cubic-bezier(.5, 0, .5, 1);
+
+    .navbar {
+        display: flex;
+        flex: 1 auto;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+
+    .title {
+        text-decoration: none;
+        color: currentColor;
+        font-size: 1.5em;
+        font-weight: 700;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: currentColor;
+        text-transform: uppercase;
+        margin-left: 20px;
+    }
+}
+
+nav.dots {
+    z-index: 10;
+    position: absolute;
+    bottom: 1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: 1s dotsApparition cubic-bezier(.5, 0, .5, 1);
+
+    .dot {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: .5em;
+        border-radius: 50%;
+        background-color: rgba($color: #000000, $alpha: .5);
+        cursor: pointer;
+        transition: background .3s ease-in-out;
+
+        &.active {
+            background-color: #000;
+        }
+    }
+}
+
+@keyframes navAppearAnimation {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes dotsApparition {
+    0% {
+        transform: translate(-50%, 3em);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
