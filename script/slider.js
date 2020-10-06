@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', function() {
      * Handle the scroll on the page and apply actions on slider
      * @param {WheelEvent} event 
      */
-    function scrollhandler(event) {
+    function scrollHandler(event) {
         if (animation === false) {
             let previous_slide = current_slide
             var sliding = null
@@ -74,22 +74,53 @@ window.addEventListener('DOMContentLoaded', function() {
                 dot.classList.add('active')
             }
             dot.dataset['id'] = slides[i].id
-            dot.addEventListener('click', () => {
-                const index_current_slide = getIndexOfElement(current_slide)
-                const index_new_slide = getIndexOfElement(slides[i])
-
-                let sliding = null
-                if (index_new_slide > index_current_slide) {
-                    sliding = 'left';
-                }
-                else {
-                    sliding = 'right';
-                }
-                activeSlide(slides[i], sliding)
-            })
+            dot.addEventListener('click', dotLinkHandler)
         }
     }
 
+    /**
+     * Handle the click event on a link in the nav menu
+     * @param {MouseEvent} event 
+     */
+    function navLinkHandler(event) {
+        if (this.hash !== '') {
+            const id = this.hash.substr(1)
+            const slide = document.getElementById(id)
+            const index_current_slide = getIndexOfElement(current_slide)
+            const index_new_slide = getIndexOfElement(slide)
+            let sliding = null
+            if (index_new_slide > index_current_slide) {
+                sliding = 'left';
+            } else {
+                sliding = 'right';
+            }
+            activeSlide(slide, sliding)
+        }
+    }
+
+    /**
+     * Handle the click event on a dot navigation
+     * @param {MouseEvent} event 
+     */
+    function dotLinkHandler(event) {
+        const id = this.dataset['id']
+        const slide = document.getElementById(id)
+        const index_current_slide = getIndexOfElement(current_slide)
+        const index_new_slide = getIndexOfElement(slide)
+
+        let sliding = null
+        if (index_new_slide > index_current_slide) {
+            sliding = 'left';
+        } else {
+            sliding = 'right';
+        }
+        activeSlide(slide, sliding)
+    }
+
+    /**
+     * Returns the index of the element inside the parent element
+     * @param {HTML} element 
+     */
     function getIndexOfElement(element) {
         var i = 0
         while ((element = element.previousElementSibling) !== null) {
@@ -98,7 +129,11 @@ window.addEventListener('DOMContentLoaded', function() {
         return i
     }
 
-    window.addEventListener('mousewheel', scrollhandler)
+    window.addEventListener('mousewheel', scrollHandler)
+    const nav_links = document.querySelectorAll('nav.menu a')
+    nav_links.forEach(link => {
+        link.addEventListener('click', navLinkHandler)
+    })
     createDots()
     
 

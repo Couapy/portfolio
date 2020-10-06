@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', function () {
    * @param {WheelEvent} event 
    */
 
-  function scrollhandler(event) {
+  function scrollHandler(event) {
     if (animation === false) {
       var _previous_slide = current_slide;
       var sliding = null;
@@ -71,8 +71,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
   function createDots() {
-    var _loop = function _loop(i) {
-      dot = document.createElement('div');
+    for (var i = 0; i < slides.length; i++) {
+      var dot = document.createElement('div');
       dots.appendChild(dot);
       dot.classList.add('dot');
 
@@ -81,27 +81,58 @@ window.addEventListener('DOMContentLoaded', function () {
       }
 
       dot.dataset['id'] = slides[i].id;
-      dot.addEventListener('click', function () {
-        var index_current_slide = getIndexOfElement(current_slide);
-        var index_new_slide = getIndexOfElement(slides[i]);
-        var sliding = null;
-
-        if (index_new_slide > index_current_slide) {
-          sliding = 'left';
-        } else {
-          sliding = 'right';
-        }
-
-        activeSlide(slides[i], sliding);
-      });
-    };
-
-    for (var i = 0; i < slides.length; i++) {
-      var dot;
-
-      _loop(i);
+      dot.addEventListener('click', dotLinkHandler);
     }
   }
+  /**
+   * Handle the click event on a link in the nav menu
+   * @param {MouseEvent} event 
+   */
+
+
+  function navLinkHandler(event) {
+    if (this.hash !== '') {
+      var id = this.hash.substr(1);
+      var slide = document.getElementById(id);
+      var index_current_slide = getIndexOfElement(current_slide);
+      var index_new_slide = getIndexOfElement(slide);
+      var sliding = null;
+
+      if (index_new_slide > index_current_slide) {
+        sliding = 'left';
+      } else {
+        sliding = 'right';
+      }
+
+      activeSlide(slide, sliding);
+    }
+  }
+  /**
+   * Handle the click event on a dot navigation
+   * @param {MouseEvent} event 
+   */
+
+
+  function dotLinkHandler(event) {
+    var id = this.dataset['id'];
+    var slide = document.getElementById(id);
+    var index_current_slide = getIndexOfElement(current_slide);
+    var index_new_slide = getIndexOfElement(slide);
+    var sliding = null;
+
+    if (index_new_slide > index_current_slide) {
+      sliding = 'left';
+    } else {
+      sliding = 'right';
+    }
+
+    activeSlide(slide, sliding);
+  }
+  /**
+   * Returns the index of the element inside the parent element
+   * @param {HTML} element 
+   */
+
 
   function getIndexOfElement(element) {
     var i = 0;
@@ -113,7 +144,11 @@ window.addEventListener('DOMContentLoaded', function () {
     return i;
   }
 
-  window.addEventListener('mousewheel', scrollhandler);
+  window.addEventListener('mousewheel', scrollHandler);
+  var nav_links = document.querySelectorAll('nav.menu a');
+  nav_links.forEach(function (link) {
+    link.addEventListener('click', navLinkHandler);
+  });
   createDots();
   console.log('[SLIDER] Loaded');
 });
