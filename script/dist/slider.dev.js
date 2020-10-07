@@ -53,13 +53,19 @@ window.addEventListener('DOMContentLoaded', function () {
 
       previous_slide.classList.remove('active');
       previous_slide.classList.add('sliding-' + sliding);
-      slide.classList.add('active'); // Disable slider during animation
+      slide.classList.add('active');
+
+      if (sliding === 'right') {
+        slide.classList.add('inverse-animation');
+      } // Disable slider during animation
+
 
       animation = true;
       setTimeout(function () {
         animation = false;
         previous_slide.classList.remove('active');
         previous_slide.classList.remove('sliding-' + sliding);
+        previous_slide.classList.remove('inverse-animation');
         previous_slide.classList.remove('ready');
         slide.classList.add('ready');
       }, 750);

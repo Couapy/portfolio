@@ -44,11 +44,13 @@ window.addEventListener('DOMContentLoaded', function() {
             dots.querySelector('.active').classList.remove('active')
             dots.querySelector('[data-id="' + slide.id + '"]').classList.add('active')
 
-
             // Disable previous slide && enable the current slide
             previous_slide.classList.remove('active')
             previous_slide.classList.add('sliding-' + sliding)
             slide.classList.add('active')
+            if (sliding === 'right') {
+                slide.classList.add('inverse-animation')
+            }
             
             // Disable slider during animation
             animation = true
@@ -56,6 +58,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 animation = false
                 previous_slide.classList.remove('active')
                 previous_slide.classList.remove('sliding-' + sliding)
+                previous_slide.classList.remove('inverse-animation')
                 previous_slide.classList.remove('ready')
                 slide.classList.add('ready')
             }, 750)
@@ -136,7 +139,5 @@ window.addEventListener('DOMContentLoaded', function() {
     })
     createDots()
     
-
-
     console.log('[SLIDER] Loaded')
 })

@@ -1,36 +1,53 @@
 .slide.ready {
-  [class*="reveal-"] {
-      animation-name: revealAnimation;
-      animation-duration: 1s;
-      animation-timing-function: cubic-bezier(.5, 0, 0, 1);
-      animation-fill-mode: both;
-  }
-  .reveal-2 { animation-delay: .1s; }
-  .reveal-3 { animation-delay: .2s; }
-  .reveal-4 { animation-delay: .3s; }
-  .reveal-5 { animation-delay: .4s; }
-  .reveal-6 { animation-delay: .5s; }
-  .reveal-7 { animation-delay: .6s; }
-  .reveal-8 { animation-delay: .7s; }
+    [class*="reveal-"] {
+        animation-name: revealAnimation;
+        animation-duration: 1s;
+        animation-timing-function: cubic-bezier(.5, 0, 0, 1);
+        animation-fill-mode: both;
+    }
+
+    &.inverse-animation [class*="reveal-"] {
+        animation-name: revealRightAnimation;
+    }
+
+    .reveal-2 { animation-delay: .1s; }
+    .reveal-3 { animation-delay: .2s; }
+    .reveal-4 { animation-delay: .3s; }
+    .reveal-5 { animation-delay: .4s; }
+    .reveal-6 { animation-delay: .5s; }
+    .reveal-7 { animation-delay: .6s; }
+    .reveal-8 { animation-delay: .7s; }
 }
 
 [class*="reveal-"] {
-  opacity: 0;
+    opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [class*="reveal-"] {
-    animation: none!important;
-  }
+    [class*="reveal-"] {
+        animation: none!important;
+    }
 }
 
 @keyframes revealAnimation {
+        0% {
+                opacity: 0;
+                transform: translateX(100px);
+        }
+        100% {
+                opacity: 1;
+                transform: translateX(0px);
+        }    
+}
+
+@keyframes revealRightAnimation {
     0% {
         opacity: 0;
-        transform: translateY(100px);
+        transform: translateX(-100px);
     }
+
     100% {
         opacity: 1;
-        transform: translateY(0px);
-    }    
+        transform: translateX(0px);
+    }
 }

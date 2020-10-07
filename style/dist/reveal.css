@@ -4,6 +4,9 @@
   animation-timing-function: cubic-bezier(0.5, 0, 0, 1);
   animation-fill-mode: both;
 }
+.slide.ready.inverse-animation [class*=reveal-] {
+  animation-name: revealRightAnimation;
+}
 .slide.ready .reveal-2 {
   animation-delay: 0.1s;
 }
@@ -38,10 +41,20 @@
 @keyframes revealAnimation {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateX(100px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0px);
+    transform: translateX(0px);
+  }
+}
+@keyframes revealRightAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
