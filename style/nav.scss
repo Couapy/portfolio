@@ -76,3 +76,26 @@ nav.dots {
         transform: translate(-50%, 0);
     }
 }
+
+/* Links */
+a {
+    position: relative;
+    color: #555;
+    text-decoration: none;
+
+    &::before {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: block;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: #555;
+        transition: width .3s cubic-bezier(.5, 0, .5, 1);
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+}

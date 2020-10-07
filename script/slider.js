@@ -36,7 +36,6 @@ window.addEventListener('DOMContentLoaded', function() {
      * @param {KeyboardEvent} event 
      */
     function keyboardHandler(event) {
-        console.log(event);
         if (animation === false) {
             var slide = null, sliding = null
             if (event.keyCode === 39 || event.keyCode === 40) {

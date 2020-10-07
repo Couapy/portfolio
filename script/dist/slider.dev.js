@@ -43,8 +43,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
   function keyboardHandler(event) {
-    console.log(event);
-
     if (animation === false) {
       var slide = null,
           sliding = null;
