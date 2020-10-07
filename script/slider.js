@@ -32,6 +32,35 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
+     * Handler the arrow keys pressions
+     * @param {KeyboardEvent} event 
+     */
+    function keyboardHandler(event) {
+        console.log(event);
+        if (animation === false) {
+            var slide = null, sliding = null
+            if (event.keyCode === 39 || event.keyCode === 40) {
+                sliding = 'left'
+                slide = current_slide.nextElementSibling
+                if (slide === null) {
+                    slide = slider.firstElementChild
+                }
+            }
+            else if (event.keyCode === 37 || event.keyCode === 38) {
+                sliding = 'right'
+                slide = current_slide.previousElementSibling
+                if (slide === null) {
+                    slide = slider.lastElementChild
+                }
+            }
+            else {
+                return
+            }
+            activeSlide(slide, sliding)
+        }
+    }
+
+    /**
      * Active a slide and disable the slider during the animation
      * @param {HTMLElement} slide .slide
      * @param {string} sliding 'right' or 'left'
@@ -61,7 +90,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 previous_slide.classList.remove('inverse-animation')
                 previous_slide.classList.remove('ready')
                 slide.classList.add('ready')
-            }, 750)
+            }, 1000)
         }
     }
 
@@ -133,6 +162,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('mousewheel', scrollHandler)
+    window.addEventListener('keydown', keyboardHandler)
     const nav_links = document.querySelectorAll('nav.menu a')
     nav_links.forEach(link => {
         link.addEventListener('click', navLinkHandler)
