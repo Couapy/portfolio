@@ -30,6 +30,7 @@ nav.menu .nav-link {
   margin-left: 20px;
 }
 
+/* Dot nav */
 nav.dots {
   z-index: 10;
   position: absolute;
@@ -40,9 +41,9 @@ nav.dots {
 }
 nav.dots .dot {
   display: inline-block;
-  width: 1em;
-  height: 1em;
-  margin-right: 0.5em;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;

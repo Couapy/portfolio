@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+}
+.row [class*=col-] {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.row .col-6 {
+  width: 50%;
+}
+.row .col-12 {
+  width: 100%;
+}
+
+.align-right {
+  text-align: right;
+}

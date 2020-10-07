@@ -35,6 +35,9 @@ nav.menu {
     }
 }
 
+/* Dot nav */
+$dot-size: 10px;
+$dot-spacement: 8px;
 nav.dots {
     z-index: 10;
     position: absolute;
@@ -45,9 +48,9 @@ nav.dots {
 
     .dot {
         display: inline-block;
-        width: 1em;
-        height: 1em;
-        margin-right: .5em;
+        width: $dot-size;
+        height: $dot-size;
+        margin-right: $dot-spacement;
         border-radius: 50%;
         background-color: rgba($color: #000000, $alpha: .5);
         cursor: pointer;

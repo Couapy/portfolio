@@ -1,25 +1,33 @@
+@mixin inputs {
+    padding: 1.25rem 1.75rem;
+    font-size: 1.10em;
+    border-radius: .5em;
+    border: 1px solid rgba($color: #000000, $alpha: .5);
+}
+
 label {
     display: block;
     font-size: 1.5em;
     font-weight: 200;
 }
 
+input[type="text"],
 input[type="email"],
 textarea {
-    padding: 1.5em 2em;
-    min-width: 500px;
-    max-width: 100%;
-    border-radius: .5em;
-    border: 1px solid rgba($color: #000000, $alpha: .5)
+    @include inputs;
+    width: 100%;
+
+}
+
+input[type="submit"] {
+    @include inputs;
 }
 
 .form-group {
     margin-bottom: 1em;
-    margin-right: 1em;
 
     textarea {
         width: 100%;
-        min-height: 300px;
         resize: vertical;
     }
 }
