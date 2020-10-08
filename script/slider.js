@@ -7,14 +7,14 @@ window.addEventListener('DOMContentLoaded', function() {
 
     /**
      * Handle the scroll on the page and apply actions on slider
-     * @param {WheelEvent} event 
+     * @param {boolean} next 
      */
-    function scrollHandler(event) {
+    function scrollHandler(next) {
         if (animation === false) {
             let previous_slide = current_slide
             var sliding = null
             var slide = current_slide
-            if (event.deltaY > 0 || event.deltaX > 0) {
+            if (next) {
                 slide = slide.nextElementSibling
                 sliding = 'left'
                 if (slide === null) {
@@ -160,13 +160,19 @@ window.addEventListener('DOMContentLoaded', function() {
         return i
     }
 
-    window.addEventListener('mousewheel', scrollHandler)
+    window.addEventListener('mousewheel', event => {
+        scrollHandler(event.deltaY > 0 || event.deltaX > 0)
+    })
+    window.addEventListener('DOMMouseScroll', event => {
+        scrollHandler(event.detail > 0)
+    })
     window.addEventListener('keydown', keyboardHandler)
     const nav_links = document.querySelectorAll('nav.menu a')
     nav_links.forEach(link => {
         link.addEventListener('click', navLinkHandler)
     })
     createDots()
+
     
     console.log('[SLIDER] Loaded')
 })
