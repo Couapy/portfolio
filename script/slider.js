@@ -173,6 +173,13 @@ window.addEventListener('DOMContentLoaded', function() {
     })
     createDots()
 
+    if (document.location.hash !== ""){
+        let slide = slider.querySelector(document.location.hash)
+        if (slide !== null) {
+            activeSlide(slide, "right")
+        }
+    }
+
     
     console.log('[SLIDER] Loaded')
 })

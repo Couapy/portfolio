@@ -194,5 +194,14 @@ window.addEventListener('DOMContentLoaded', function () {
     link.addEventListener('click', navLinkHandler);
   });
   createDots();
+
+  if (document.location.hash !== "") {
+    var slide = slider.querySelector(document.location.hash);
+
+    if (slide !== null) {
+      activeSlide(slide, "right");
+    }
+  }
+
   console.log('[SLIDER] Loaded');
 });
