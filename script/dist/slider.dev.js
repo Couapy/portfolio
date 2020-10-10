@@ -100,7 +100,7 @@ window.addEventListener('DOMContentLoaded', function () {
         previous_slide.classList.remove('inverse-animation');
         previous_slide.classList.remove('ready');
         slide.classList.add('ready');
-      }, 1000);
+      }, 600);
     }
   }
   /**
