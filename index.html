@@ -154,7 +154,7 @@
                     <div class="row">
                         <h2 class="reveal-1">Me contacter</h2>
                     </div>
-                    <form action="#" method="POST">
+                    <form action="mail.php" method="POST">
 
                         <div class="row reveal-2">
                             <div class="form-group col-6 col-12-md">
@@ -166,22 +166,29 @@
                                 <input type="text" name="firstname" id="firstname" placeholder="Prénom"/>
                             </div>
                         </div>
-            
+
                         <div class="row reveal-3">
+                            <div class="form-group col-12">
+                                <label for="subject">Sujet</label>
+                                <input type="text" name="subject" id="subject" placeholder="Le sujet">
+                            </div>
+                        </div>
+            
+                        <div class="row reveal-4">
                             <div class="form-group col-12">
                                 <label for="email">Email</label>
                                 <input type="email" name="email" id="email" placeholder="prénom.nom@exemple.fr"/>
                             </div>
                         </div>
             
-                        <div class="row reveal-4">
+                        <div class="row reveal-5">
                             <div class="form-group col-12">
                                 <label for="message">Votre message</label>
                                 <textarea id="message" name="message" placeholder="Quelle est votre requête ?" rows="7"></textarea>
                             </div>
                         </div>
             
-                        <div class="row reveal-5">
+                        <div class="row reveal-6">
                             <div class="align-right col-12">
                                 <input type="submit" value="Envoyer" />
                             </div>
