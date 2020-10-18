@@ -4,6 +4,7 @@
 
 .row {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     padding: $margin-columns;
 
@@ -18,6 +19,14 @@
 
     .col-12 {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .row {
+        .col-12-md {
+            width: 100%;
+        }
     }
 }
 
@@ -41,8 +50,7 @@ body {
     height: 100vh;
     overflow: hidden;
     scroll-behavior: smooth;
-
-    font-size: 12px;
+    font-size: $body-font-size;
 }
 
 body {
@@ -53,16 +61,30 @@ body {
     display: none;
 }
 
-/* Main */
+.container {
+    width: 1200px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: calc(100% - 40px);
+    }
+}
+
 .hero {
     position: absolute;
     top: 50%;
     left: 50%;
     width: max-content;
-    max-width: calc(100vw - 2em);
+    max-width: calc(100% - 40px);
     transform: translate(-50%, -50%);
     font-size: 1.2em;
+}
 
+header {
     h1 {
         font-size: $slider-header-h1-font-size;
         font-weight: 700;
@@ -80,9 +102,11 @@ body {
     }
 }
 
-section .hero {
-    width: 80%;
-    font-size: $slider-section-font-size;
+section {
+    .hero {
+        width: 80%;
+        font-size: $slider-section-font-size;
+    }
 
     h2,
     h3 {
@@ -135,50 +159,34 @@ a {
     position: relative;
 }
 
-.slide {
-    position: absolute;
-    top: 0px;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    animation-duration: $slider-animation-duration;
-    animation-timing-function: cubic-bezier(.85, 0, .5, 1);
-
-    &.active {
-        opacity: 1;
-        left: 0;
-    }
-
-    &.sliding-left {
-        z-index: 5;
-        left: -100%;
-        animation-name: slidingLeftAnimation;
-    }
-
-    &.sliding-right {
-        z-index: 5;
-        left: 200%;
-        animation-name: slidingRightAnimation;
-    }
-
-}
-
-@media screen and (max-width: 768px) {
-
-    html,
-    body {
-        overflow: auto;
-    }
-
-    .slider {
-        height: auto;
-        min-height: 100%;
-    }
-
+@media screen and (min-width: 769px) {
     .slide {
-        position: unset;
+        position: absolute;
+        top: 0px;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        animation-duration: $slider-animation-duration;
+        animation-timing-function: cubic-bezier(.85, 0, .5, 1);
+
+        &.active {
+            opacity: 1;
+            left: 0;
+        }
+
+        &.sliding-left {
+            z-index: 5;
+            left: -100%;
+            animation-name: slidingLeftAnimation;
+        }
+        
+        &.sliding-right {
+            z-index: 5;
+            left: 200%;
+            animation-name: slidingRightAnimation;
+        }
     }
 }
 
@@ -209,7 +217,7 @@ input[type="submit"] {
 }
 
 .form-group {
-    margin-bottom: 1em;
+    margin-bottom: $margin-bottom-form;
 
     textarea {
         width: 100%;
@@ -224,7 +232,8 @@ nav.menu {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-family: 'Lato', sans-serif;
     color: var(--header-font-color);
     transition: background .3s ease-in-out;
@@ -243,6 +252,10 @@ nav.menu {
         color: currentColor;
         font-size: $navbar-font-size;
         font-weight: 700;
+    }
+
+    .menu-button {
+        display: none;
     }
 
     .nav-link {
@@ -278,50 +291,222 @@ nav.dots {
     }
 }
 
-/* Reveal */
-.slide.ready {
-    [class*="reveal-"] {
-        animation-name: revealAnimation;
-        animation-duration: 1s;
-        animation-timing-function: cubic-bezier(.5, 0, 0, 1);
-        animation-fill-mode: both;
+.menu-button {
+    position: relative;
+    width: $navbar-button-width;
+    height: $navbar-button-width;
+    cursor: pointer;
+
+    .menu-button-row,
+    .menu-button-row::before,
+    .menu-button-row::after {
+        position: absolute;
+        width: $navbar-button-width / 2;
+        height: $navbar-button-width-row;
+        border-radius: $navbar-button-width-row;
+        background-color: currentColor;
+        transition: all .2s ease-in-out;
     }
 
-    &.inverse-animation [class*="reveal-"] {
-        animation-name: revealRightAnimation;
+    .menu-button-row {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
-    .reveal-2 {
-        animation-delay: .1s;
+    .menu-button-row::before {
+        content: '';
+        bottom: $navbar-button-row-space;
     }
 
-    .reveal-3 {
-        animation-delay: .2s;
-    }
-
-    .reveal-4 {
-        animation-delay: .3s;
-    }
-
-    .reveal-5 {
-        animation-delay: .4s;
-    }
-
-    .reveal-6 {
-        animation-delay: .5s;
-    }
-
-    .reveal-7 {
-        animation-delay: .6s;
-    }
-
-    .reveal-8 {
-        animation-delay: .7s;
+    .menu-button-row::after {
+        content: '';
+        top: $navbar-button-row-space;
     }
 }
 
-[class*="reveal-"] {
-    opacity: 0;
+nav.menu.active {
+    .menu-button-row {
+        background-color: transparent;
+    }
+
+    .menu-button-row::before {
+        transform: translateY($navbar-button-row-space) rotate(45deg);
+    }
+
+    .menu-button-row::after {
+        transform: translateY(-$navbar-button-row-space) rotate(-45deg);
+    }
+}
+
+/* Mobile version */
+@media screen and (max-width: 768px) {
+
+    html,
+    body {
+        overflow: auto;
+    }
+
+    body {
+        padding-top: 80px;
+    }
+
+    nav.menu {
+        position: fixed;
+        background-color: #ffffff;
+        border-bottom: 1px solid rgba($color: #000000, $alpha: .2);
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        &.active {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            .items {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                animation-duration: $slider-animation-duration;
+                animation-timing-function: cubic-bezier(.85, 0, .5, 1);
+                animation-name: revealRightAnimation;
+            }
+        }
+
+        .container,
+        .navbar {
+            height: 100%;
+        }
+
+        .navbar {
+            display: block;
+        }
+
+        .brand {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .items {
+            display: none;
+            flex-direction: column;
+            margin-top: 40px;
+
+            .nav-link {
+                margin-top: $navbar-items-space-mobile;
+                font-size: $navbar-items-font-size-mobile;
+            }
+        }
+
+        .menu-button {
+            display: block;
+        }
+    }
+
+    .dots {
+        display: none;
+    }
+
+    .slider {
+        position: inherit;
+    }
+
+    .slide {
+        position: relative;
+        height: auto;
+        left: 0;
+        opacity: 1;
+    }
+
+    .hero,
+    header .hero,
+    section .hero {
+        position: inherit;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        transform: none;
+        padding: 20px $slider-padding-mobile;
+        scroll-padding-top: 40px;
+    }
+
+    header {
+        h1 {
+            font-size: $mobile-header-h1-font-size;
+        }
+
+        h2 {
+            font-size: $mobile-header-h2-font-size;
+        }
+
+        h3 {
+            font-size: $mobile-header-h3-font-size;
+        }
+    }
+
+    section {
+        h2 {
+            font-size: $mobile-section-h2-font-size;
+        }
+
+        h3 {
+            font-size: $mobile-section-h3-font-size;
+        }
+    }
+}
+
+/* Reveal */
+
+@media screen and (min-width: 769px) {
+    .slide.ready {
+        [class*="reveal-"] {
+            animation-name: revealAnimation;
+            animation-duration: 1s;
+            animation-timing-function: cubic-bezier(.5, 0, 0, 1);
+            animation-fill-mode: both;
+        }
+    
+        &.inverse-animation [class*="reveal-"] {
+            animation-name: revealRightAnimation;
+        }
+    
+        .reveal-2 {
+            animation-delay: .1s;
+        }
+    
+        .reveal-3 {
+            animation-delay: .2s;
+        }
+    
+        .reveal-4 {
+            animation-delay: .3s;
+        }
+    
+        .reveal-5 {
+            animation-delay: .4s;
+        }
+    
+        .reveal-6 {
+            animation-delay: .5s;
+        }
+    
+        .reveal-7 {
+            animation-delay: .6s;
+        }
+    
+        .reveal-8 {
+            animation-delay: .7s;
+        }
+    }
+
+    [class*="reveal-"] {
+        opacity: 0;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

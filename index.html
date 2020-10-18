@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maël Marchand - Portfolio</title>
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg">
+    <meta name="theme-color" content="#fff">
 
+    <!-- SEO meta tags -->
+    <meta name="description" content="Découvrez qui est Maël Marchand, et préparez vous à parcourir ses projets.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Maël Marchand">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="fr">
+    
     <!-- Import Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -13,7 +21,8 @@
     <link rel="stylesheet" href="./style/dist/style.min.css">
 
     <!-- Import Scripts -->
-    <script src="./script/slider.js" defer></script>
+    <script src="./script/dist/slider.prod.js" defer></script>
+    <script src="./script/dist/navigation.prod.js" defer></script>
 </head>
 <body>
 
@@ -23,7 +32,11 @@
                 <div class="navbar">
                     <div class="brand">
                         <a href="#hello" class="title">Maël Marchand</a>
-                        <span class="toggle-btn"></span>
+                        <span class="menu-button">
+                            <div class="menu-button-row"></div>
+                            <div class="menu-button-row"></div>
+                            <div class="menu-button-row"></div>
+                        </span>
                     </div>
                     <div class="items">
                         <a href="#aboutme" class="nav-link">A propos</a>
@@ -48,7 +61,6 @@
                     <h1 class="reveal-3">Maël Marchand</h1>
                     <h3 class="reveal-4">Développeur web junior</h3>
                 </div>
-                <a href="#competences" class="arrow"></a>
             </header>
 
             <!-- Section - About me -->
@@ -72,7 +84,7 @@
             <!-- Section - Competences -->
             <section class="slide" id="competences">
                 <div class="hero">
-                    <h2 class="reveal-1">Competences</h2>
+                    <h2 class="reveal-1">Compétences</h2>
                     <div class="grid grid-4 reveal">
                         <div class="card reveal-2">
                             <h3>Python</h3>
@@ -145,11 +157,11 @@
                     <form action="#" method="POST">
 
                         <div class="row reveal-2">
-                            <div class="form-group col-6">
+                            <div class="form-group col-6 col-12-md">
                                 <label for="name">Nom</label>
                                 <input type="text" name="name" id="name" placeholder="Nom"/>
                             </div>
-                            <div class="form-group col-6">
+                            <div class="form-group col-6 col-12-md">
                                 <label for="firstname">Prénom</label>
                                 <input type="text" name="firstname" id="firstname" placeholder="Prénom"/>
                             </div>

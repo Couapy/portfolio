@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', function() {
      */
     function activeSlide(slide, sliding) {
         if (current_slide !== slide && animation === false) {
-            previous_slide = current_slide
+            let previous_slide = current_slide
             current_slide = slide
             // Select dot
             dots.querySelector('.active').classList.remove('active')
@@ -126,6 +126,11 @@ window.addEventListener('DOMContentLoaded', function() {
                 sliding = 'right';
             }
             activeSlide(slide, sliding)
+            if (window.innerWidth <= 768) {
+                event.preventDefault()
+                document.location.hash = this.hash
+                document.body.scrollTop = slide.offsetTop
+            }
         }
     }
 
@@ -177,6 +182,9 @@ window.addEventListener('DOMContentLoaded', function() {
         let slide = slider.querySelector(document.location.hash)
         if (slide !== null) {
             activeSlide(slide, "right")
+        }
+        if (window.innerWidth <= 768) {
+            document.body.scrollTop = slide.offsetTop
         }
     }
 
