@@ -1,16 +1,16 @@
 <?php
 
-if (isset($_POST['name']) AND isset($_POST['first_name']) AND isset($_POST['subject']) AND isset($_POST['email']) AND isset($_POST['message'])) {
+if (isset($_POST['name']) AND isset($_POST['firstname']) AND isset($_POST['subject']) AND isset($_POST['email']) AND isset($_POST['message'])) {
     $to = 'mael@marchand.cloud';
     $subject = '[Portfolio contact] ' . $_POST['subject'];
-    $identity = '<' . $_POST['first_name'] . ' ' . $_POST['name']. '> ' .$_POST['email'];
+    $identity = '<' . $_POST['firstname'] . ' ' . $_POST['name']. '> ' .$_POST['email'];
     $message = implode("\r\n", [
         "Vous avez été contacté par $identity",
         "Son message est le suivant : \n",
         $_POST['message'],
     ]);
     $headers = [
-        'From: contact@marchand.cloud' . "\r\n",
+        'From: <Portfolio> contact@marchand.cloud' . "\r\n",
         'Reply-To: ' . $identity . "\r\n",
         'X-Mailer: PHP/' . phpversion(),
     ];
@@ -21,6 +21,7 @@ if (isset($_POST['name']) AND isset($_POST['first_name']) AND isset($_POST['subj
         http_response_code(500);
         die($e);
     }
+    header('Location: https://mael.marchand.cloud/');
 }
 else {
     http_response_code(400);
