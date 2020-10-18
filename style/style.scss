@@ -343,7 +343,7 @@ nav.menu.active {
 @media screen and (max-width: 768px) {
     html,
     body {
-        overflow: auto;
+        overflow: visible;
     }
 
     body {
@@ -411,11 +411,11 @@ nav.menu.active {
     }
 
     .slider {
-        position: inherit;
+        position: initial;
     }
 
     .slide {
-        position: relative;
+        position: initial;
         height: auto;
         left: 0;
         opacity: 1;
