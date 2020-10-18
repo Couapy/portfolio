@@ -192,9 +192,10 @@ a {
 
 /* Contact Form */
 @mixin inputs {
-    padding: 1.25rem 1.75rem;
+    padding: 1rem 1.5rem;
     font-size: 1.10em;
-    border-radius: .5em;
+    border-radius: .25em;
+    margin-top: .5em;
     border: 1px solid rgba($color: #000000, $alpha: .5);
 }
 
@@ -209,7 +210,6 @@ input[type="email"],
 textarea {
     @include inputs;
     width: 100%;
-
 }
 
 input[type="submit"] {
@@ -341,7 +341,6 @@ nav.menu.active {
 
 /* Mobile version */
 @media screen and (max-width: 768px) {
-
     html,
     body {
         overflow: auto;
@@ -420,6 +419,7 @@ nav.menu.active {
         height: auto;
         left: 0;
         opacity: 1;
+        padding-bottom: 1em;
     }
 
     .hero,
@@ -450,8 +450,11 @@ nav.menu.active {
     }
 
     section {
+        border-top: 1px dashed rgba($color: #000000, $alpha: .5);
+
         h2 {
             font-size: $mobile-section-h2-font-size;
+            margin-top: 0;
         }
 
         h3 {
