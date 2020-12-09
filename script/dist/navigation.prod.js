@@ -1,1 +1,0 @@
-"use strict";document.addEventListener("DOMContentLoaded",function(){var e=document.querySelector(".menu-button"),t=document.querySelector("nav.menu"),n=t.querySelectorAll("a, .nav-link");e.addEventListener("click",function(){t.classList.toggle("active")}),n.forEach(function(e){e.addEventListener("click",function(){t.classList.remove("active")})})});
