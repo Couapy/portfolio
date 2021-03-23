@@ -84,7 +84,7 @@ body {
     font-size: 1.2em;
 }
 
-header {
+.header {
     h1 {
         font-size: $slider-header-h1-font-size;
         font-weight: 700;
@@ -423,7 +423,7 @@ nav.menu.active {
     }
 
     .hero,
-    header .hero,
+    .header .hero,
     section .hero {
         position: inherit;
         top: 0;
@@ -435,7 +435,7 @@ nav.menu.active {
         scroll-padding-top: 40px;
     }
 
-    header {
+    .header {
         h1 {
             font-size: $mobile-header-h1-font-size;
         }
