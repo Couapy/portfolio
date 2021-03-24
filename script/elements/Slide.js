@@ -35,6 +35,7 @@ export default class Slide extends HTMLDivElement {
             this.slider.dots.querySelector('[data-id="' + this.id + '"]').classList.add('active')
 
             // Disable previous slide && enable the current slide
+            this.slider.current_slide = this;
             previous_slide.classList.remove('active')
             previous_slide.classList.add('sliding-' + sliding)
             this.classList.add('active')
