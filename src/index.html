@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maël Marchand - Portfolio</title>
+
+    <link rel="stylesheet" href="styles/dist/styles.css">
+
+    <script src="scripts/app.js" type="module" defer></script>
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <div class="brand">Maël Marchand<span class="badge bg-secondary">FR</span></div>
+            <div class="menu-button">
+                <div class="row"></div>
+            </div>
+            <div class="menu" is="div-menu">
+                <a href="#home">Accueil</a>
+                <span class="submenu">
+                    <a href="#projects">Réalisations</a>
+                    <div class="subitems">
+                        <a href="#project-mc-manager">mc-manager</a>
+                        <a href="#project-dynhost-updater">dynhost-updater</a>
+                        <a href="#project-notes">notes</a>
+                        <a href="#project-3drenderer">3drenderer</a>
+                    </div>
+                </span>
+                <a href="#stack">Ma stack</a>
+                <a href="#contact" class="active">Me contacter</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container">
+            <div class="presentation">
+                <h2>Bonjour,<br>je m'appelle Maël.</h2>
+                <p>
+                    Je suis élève ingénieur à l'Université de Technologie de Troyes, spécialisé dans l'Informatique et
+                    Systèmes
+                    d'information.
+                </p>
+                <p>
+                    Je suis passionné par le code, c'est pourquoi je développe des projets personnels sur mon temps
+                    libre.
+                </p>
+            </div>
+            <img loading="lazy" src="assets/img/presentation.webp" alt="Maël Marchand">
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Mes réalisations</h2>
+            <p>Voici quelques-uns de mes projets personnels et professionnels</p>
+            <div class="grid">
+                <!-- 
+                    Projets :
+                    * mc-manager
+                    * dynhost-updater
+                    * hypex
+                    * notes
+                    * 3drenderer
+                    * badaiglon.fr
+                    * othello-isn
+                 -->
+
+                <div class="project" id="project-mc-manager" is="div-project"
+                    style="background-image: url('assets/img/project/mc-manager/server.png');">
+                    <div class="overlay">
+                        <div class="title">mc-manager</div>
+                        <a href="#" class="about">En savoir plus</a>
+                    </div>
+
+                    <div class="project-presentation">
+                        <a href="#" class="close"></a>
+                        <section class="project-header">
+                            <h3>mc-manager</h3>
+                            <div class="short-description">
+                                Web manager de serveurs Minecraft
+                            </div>
+                        </section>
+                        <section class="project-stack">
+                            <img loading="lazy" src="./assets/img/stack/django.svg" alt="Django">
+                            <img loading="lazy" src="./assets/img/stack/python.svg" alt="Python">
+                            <img loading="lazy" src="./assets/img/stack/javascript.svg" alt="JavaScript">
+                            <img loading="lazy" src="./assets/img/stack/html5.svg" alt="HTML5">
+                            <img loading="lazy" src="./assets/img/stack/css3.svg" alt="CSS3">
+                            <img loading="lazy" src="./assets/img/stack/bootstrap.svg" alt="Bootstrap">
+                            <img loading="lazy" src="./assets/img/stack/docker.svg" alt="Docker">
+                        </section>
+                        <div class="row">
+                            <section class="project-description">
+                                <h4>Description</h4>
+                                <p>
+                                    <i>mc-manager</i> est un web manager permettant d'administrer des serveurs
+                                    Minecraft.
+                                </p>
+                                <p>
+                                    Ce projet répond à une problématique rencontrée avec des amis lors de partie de jeu,
+                                    où les serveurs sont executés sur un serveur personnel. Pour réduire les coûts
+                                    d'électricité, les serveurs Minecraft ne sont pas allumés en permanence, et je
+                                    devais les allumer et les éteindre en me connectant en SSH à chaque fois. Cependant
+                                    je n'étais pas toujours disponible pour lancer les serveurs lorsque mes amis
+                                    voulaient continuer la partie.
+                                </p>
+                                <p>
+                                    Ainsi l'idée m'est venue de créer un web manager pour qu'ils puissent tout faire
+                                    sans mon aide.
+                                </p>
+                                <p>
+                                    Le site permet alors de créer un serveur Minecraft, de choisir sa version et de le
+                                    configurer. De plus, ne voulant pas perdre l'avantage du jeu multijoueur, j'ai
+                                    décidé d'ajouter un système de partages permettant aux joueurs du même serveur de
+                                    démarrer ou d'arrêter un serveur Minecraft.
+                                </p>
+                                <p>
+                                    Le projet est-il fini ?<br>
+                                    Je ne pense pas, je songe à ajouter quelques fonctionnalités comme :
+                                <ul>
+                                    <li>Accès à la console depuis le navigateur</li>
+                                    <li>Gestion des maps (upload / suppression / sélection)</li>
+                                    <li>Ouverture automatisée des ports dans la livebox</li>
+                                </ul>
+                                </p>
+                            </section>
+                            <section class="project-screenshots">
+                                <h4>Captures d'écran</h4>
+                                <div class="project-screenshots-images">
+                                    <img loading="lazy" src="./assets/img/project/mc-manager/server.png"
+                                        alt="Gestion des serveurs">
+                                    <img loading="lazy" src="./assets/img/project/mc-manager/properties.png"
+                                        alt="Configuration du serveur">
+                                    <img loading="lazy" src="./assets/img/project/mc-manager/shares.png"
+                                        alt="Partages utilisateurs">
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="projet" id="projet-mc-manager">
+                    <a class="title" href="https://github.com/Couapy/mc-manager">mc-manager</a>
+                    <p>
+                    </p>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section id="stack">
+        <div class="container">
+            <h2>Ma stack technologique</h2>
+            <p>
+                Les outils que j'utilise pour mes projets
+            </p>
+            <div class="grid">
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/django.svg" alt="Django">
+                    <span class="skill-name">Django</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/python.svg" alt="Python">
+                    <span class="skill-name">Python</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/nodejs.svg" alt="NodeJS">
+                    <span class="skill-name">NodeJS</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/javascript.svg" alt="JavaScript">
+                    <span class="skill-name">JavaScript</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/java.svg" alt="Java">
+                    <span class="skill-name">Java</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/php.svg" alt="PHP">
+                    <span class="skill-name">PHP</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/html5.svg" alt="HTML5">
+                    <span class="skill-name">HTML5</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/css3.svg" alt="CSS3">
+                    <span class="skill-name">CSS3</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/bootstrap.svg" alt="Bootstrap">
+                    <span class="skill-name">Bootstrap</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/docker.svg" alt="Docker">
+                    <span class="skill-name">Docker</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/tux.svg" alt="Linux">
+                    <span class="skill-name">Linux</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/git.svg" alt="git">
+                    <span class="skill-name">git</span>
+                </div>
+                <div class="skill">
+                    <img loading="lazy" src="./assets/img/stack/github.svg" alt="GitHub">
+                    <span class="skill-name">GitHub</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Envie de discuter ?</h2>
+        <a href="mailto:contact@marchand.cloud">Mail</a>
+        <a href="mailto:contact@marchand.cloud">Linkedin</a>
+        <a href="mailto:contact@marchand.cloud">GitHub</a>
+    </footer>
+
+</body>
+
+</html>
