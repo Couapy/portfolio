@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <nav class="reveal-top reveal-1">
+    <nav class="reveal reveal-top reveal-4">
         <div class="container">
             <div class="brand">Maël Marchand<span class="badge bg-secondary">FR</span></div>
             <div class="menu-button">
@@ -38,7 +38,7 @@
 
     <header id="home">
         <div class="container">
-            <div class="presentation">
+            <div class="presentation reveal reveal-left reveal-6">
                 <h2>Bonjour,<br>je m'appelle Maël.</h2>
                 <p>
                     Je suis élève ingénieur à l'Université de Technologie de Troyes, spécialisé dans l'Informatique et
@@ -50,14 +50,15 @@
                     libre.
                 </p>
             </div>
-            <img loading="lazy" src="assets/img/presentation.webp" alt="Maël Marchand">
+            <img loading="lazy" src="assets/img/presentation.webp" alt="Maël Marchand"
+                class=" reveal reveal-right reveal-8">
         </div>
     </header>
 
     <section id="projects">
         <div class="container">
-            <h2>Mes réalisations</h2>
-            <p>Voici quelques-uns de mes projets personnels et professionnels</p>
+            <h2 class="reveal reveal-bottom reveal-1">Mes réalisations</h2>
+            <p class="reveal reveal-bottom reveal-3">Voici quelques-uns de mes projets personnels et professionnels</p>
             <div class="grid">
                 <!-- 
                     Projets :
@@ -70,7 +71,7 @@
                     * othello-isn
                  -->
 
-                <div class="project" id="project-mc-manager" is="div-project"
+                <div class="project reveal reveal-bottom reveal-5" id="project-mc-manager" is="div-project"
                     style="background-image: url('assets/img/project/mc-manager/server.png');">
                     <div class="overlay">
                         <div class="title">mc-manager</div>
@@ -154,11 +155,11 @@
 
     <section id="stack">
         <div class="container">
-            <h2>Ma stack technologique</h2>
-            <p>
+            <h2 class="reveal reveal-bottom reveal-1">Ma stack technologique</h2>
+            <p class="reveal reveal-bottom reveal-3">
                 Les outils que j'utilise pour mes projets
             </p>
-            <div class="grid">
+            <div class="grid reveal reveal-bottom reveal-5">
                 <div class="skill">
                     <img loading="lazy" src="./assets/img/stack/django.svg" alt="Django">
                     <span class="skill-name">Django</span>
