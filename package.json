@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "compile": "sass src/styles/styles.scss src/styles/dist/styles.css --style compressed",
-    "dev": "sass --watch src/styles/styles.scss src/styles/dist/styles.css"
+    "style:compile:prod": "sass src/styles/styles.sass src/styles/dist/styles.css --style compressed",
+    "style:compile:dev": "sass --watch src/styles/styles.sass src/styles/dist/styles.css"
   },
   "dependencies": {
     "sass": "^1.34.1"
