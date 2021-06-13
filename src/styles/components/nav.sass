@@ -1,0 +1,165 @@
+nav
+    z-index: 2
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    background-color: $color-primary
+    box-shadow: 0 2px 0 0 $color-secondary
+
+    .container
+        display: flex
+        align-items: stretch
+        justify-content: space-between
+        padding: 1rem 0
+        justify-content: space-between
+
+    .brand
+        display: flex
+        align-items: center
+        font-size: 1rem
+        font-weight: 700
+        line-height: 1.5
+        padding: $item-menu-padding
+
+        .badge
+            display: inline-block
+            margin-left: .3rem
+            padding: .25em .45em
+            font-size: .75em
+            line-height: 1.2
+            color: #fff
+            white-space: nowrap
+            vertical-align: baseline
+            border-radius: .25rem
+            background-color: $color-action
+
+    .menu
+        a
+            display: inline-block
+            text-decoration: none
+            color: inherit
+            padding: $item-menu-padding
+            border-radius: .25rem
+
+        a:hover,
+        a.active,
+        span.active
+            background-color: $color-secondary
+
+        span.submenu
+            position: relative
+
+            & > a
+                position: relative
+                padding-right: 0
+
+                &::after
+                    content: " "
+                    display: inline-block
+                    width: .625rem
+                    height: .625rem
+                    top: 0px
+                    margin-top: -2px
+                    margin-left: 1rem
+                    border-radius: 2px
+                    border-top: 3px solid black
+                    border-right: 3px solid black
+                    transform: rotate(135deg) translate(5px, 7px)
+
+            & > .subitems
+                position: absolute
+                top: calc(100% + .5rem)
+                left: 0px
+                display: none
+                width: max-content
+                padding: .25rem 0
+                border-radius: 6px
+                box-shadow: 0 8px 8px rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 10%)
+                background-color: $color-primary
+
+                a
+                    display: block
+
+            &:hover > .subitems
+                display: block
+
+    .menu-button
+        display: none
+        position: relative
+        --line-color: #333
+
+        width: 40px
+        height: 40px
+        background-color: $color-primary
+        border-radius: 50%
+        cursor: pointer
+
+        .row,
+        .row::before,
+        .row::after
+            position: absolute
+            width: 30px
+            height: 3px
+            border-radius: 5px
+            background-color: var(--line-color)
+            transition: all .2s ease-in-out
+
+        .row
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+
+            &::before
+                content: ''
+                bottom: 8px
+
+            &::after
+                content: ''
+                top: 8px
+
+        &.active .row
+            background-color: transparent
+
+            &::before
+                transform: translateY(8px) rotate(45deg)
+
+            &::after
+                transform: translateY(-8px) rotate(-45deg)
+
+@media screen and (max-width: 768px)
+    nav
+        &.active .container
+            flex-wrap: wrap
+
+            .menu
+                display: block
+                width: 100%
+                margin: 1rem 0
+
+        .menu
+            display: none
+
+            a,
+            span.submenu
+                display: block
+
+            span.submenu > .subitems
+                position: inherit
+                display: block
+                width: auto
+                margin-left: 1rem
+                box-shadow: unset
+
+        .menu-button
+            display: block
+
+@media screen and (max-width: 960px)
+    header
+        padding-top: 2rem
+
+        .container
+            display: inherit
+
+            & > *
+                width: 100%
