@@ -17,11 +17,10 @@ const handleIntersect = function (entries, observer) {
 export default function () {
     document.documentElement.classList.add('reveal-loaded')
     window.addEventListener("DOMContentLoaded", function () {
-        console.log("reveal loaded");
         const observer = new IntersectionObserver(handleIntersect, options)
         const targets = document.querySelectorAll('.reveal')
         targets.forEach(function (target) {
             observer.observe(target)
         })
     })
-};
+}

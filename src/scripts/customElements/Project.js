@@ -38,7 +38,6 @@ export default class Project extends HTMLDivElement {
      * @param {MouseEvent} e event
      */
     onOpen(e) {
-        console.log(e);
         e.preventDefault()
         this.overlay.style.display = 'block'
         this.overlay.classList.add('opened')
