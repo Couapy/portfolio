@@ -7,13 +7,10 @@ export default class ImagePreviewer extends HTMLDivElement {
     }
 
     initialize() {
-        this.closeButton = document.createElement('button')
+        this.closeButton = document.createElement('a')
         this.closeButton.classList.add('close')
         this.closeButton.setAttribute('data-dismiss', 'modal')
         this.closeButton.setAttribute('aria-label', 'close')
-        let closeSpan = document.createElement('span', { 'aria-hidden': 'true' })
-        closeSpan.setAttribute('aria-hidden', 'true')
-        closeSpan.innerHTML = '&times';
 
         let viewer = document.createElement('div')
         viewer.classList.add('viewer')
@@ -23,7 +20,6 @@ export default class ImagePreviewer extends HTMLDivElement {
         this.legend = document.createElement('legend')
         this.legend.classList.add('legend')
 
-        this.closeButton.appendChild(closeSpan)
         viewer.appendChild(scroller)
         scroller.appendChild(this.image)
         scroller.appendChild(this.legend)
