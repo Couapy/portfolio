@@ -34,7 +34,7 @@ export default class ImagePreviewer extends HTMLDivElement {
             return
         }
         this.image.src = image.src;
-        this.legend.innerText = this.image.getAttribute('alt')
+        this.legend.innerText = image.getAttribute('alt')
     }
 
     connectedCallback() {
