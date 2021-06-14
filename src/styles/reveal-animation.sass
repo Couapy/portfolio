@@ -7,21 +7,26 @@ $animations: (("name": top, "x": 0, "y": -1),("name": bottom, "x": 0, "y": 1),("
  * Reveal animation on visibility
  **/
 .reveal-loaded .reveal
+    [class*="reveal"],
     &[class*="reveal"]
         opacity: 0
 
     &.reveal-ready
+        [class*="reveal-"],
         &[class*="reveal-"]
+            opacity: 1
             animation-duration: 1s
             animation-timing-function: cubic-bezier(.5, 0, 0, 1)
             animation-fill-mode: both
 
         @each $animation in $animations
             $name: map.get($animation, name)
+            .reveal-#{$name},
             &.reveal-#{$name}
                 animation-name: reveal_animation_#{$name}
 
         @for $i from 1 through 20
+            .reveal-#{$i},
             &.reveal-#{$i}
                 animation-delay: 0.1s * $i
 
