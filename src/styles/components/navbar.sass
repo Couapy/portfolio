@@ -1,0 +1,27 @@
+nav
+  display: none
+  padding: 1em .2em
+  ul
+    display: block
+    li
+      display: inline-block
+      margin-right: 1em
+      padding: .25em 5em
+      list-style: none
+      a
+        $border-width: 3px
+        position: relative
+        display: block
+        text-decoration: none
+        color: inherit
+        &::after
+          content: ' '
+          position: absolute
+          left: 0
+          bottom: 0
+          width: 0
+          height: $border-width
+          background-color: currentColor
+          transition: width .3s cubic-bezier(.5,0,.5,1)
+        &:hover::after
+          width: 100%

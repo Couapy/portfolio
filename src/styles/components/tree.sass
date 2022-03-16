@@ -1,0 +1,49 @@
+@import '../breakpoints'
+
+.tree .branch
+  margin-bottom: 1.5em
+
+@media screen and (min-width: $breakpoint-lg)
+  .tree
+    $branch-size: calc(50% - 1.75em)
+    $dot-size: 1.5em
+    $dot-margin: 1em
+    $dot-margin-top: 1.2em
+    // $line-size
+    .branch
+      position: relative
+      width: $branch-size
+      margin-right: auto
+      margin-bottom: auto
+      text-align: right
+      &::before
+        content: ' '
+        position: absolute
+        top: 0
+        left: calc(100% + $dot-margin + $dot-size / 2)
+        transform: translateX(-50%)
+        width: 2px
+        height: 100%
+        background: #eceff4
+      &::after
+        content: ' '
+        position: absolute
+        top: $dot-margin-top
+        left: calc(100% + $dot-margin)
+        transform: translateY(-50%)
+        width: $dot-size
+        height: $dot-size
+        border-radius: 50%
+        background: #5e81ac
+    .branch:nth-of-type(2n)
+      margin-left: auto
+      margin-right: unset
+      text-align: left
+      &::before
+        left: auto
+        right: calc(100% + $dot-margin + $dot-size / 2)
+        transform: translateX(50%)
+      &::after
+        left: auto
+        right: calc(100% + $dot-margin)
+
