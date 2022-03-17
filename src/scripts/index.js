@@ -1,3 +1,9 @@
-import './theme.js'
+import setupTheme from './theme.js'
 
-console.info("application started!")
+
+function main() {
+  setupTheme()
+  console.info("application started!")
+}
+
+main()

@@ -1,31 +1,26 @@
-const toggleSwitch = document.querySelector('.theme-switch-button')
-const currentTheme = localStorage.getItem('theme')
+const defaultTheme = window.matchMedia('(prefers-color-scheme: light)') ? 'light' : 'dark'
 
-/**
- * Switch the theme and save it in the local storage
- */
-function switchTheme() {
-    if (document.body.dataset.theme == 'light') {
-        localStorage.setItem('theme', 'dark')
-    }
-    else {
-        localStorage.setItem('theme', 'light')
-    }
-    updateTheme()
+function selectTheme(theme, save = false) {
+  // Update localstorage
+  if (save) localStorage.setItem('theme', theme)
+  // Update body class
+  document.body.className = theme
+  // Update meta theme-color
+  const meta = document.querySelector('meta[name="theme-color"]')
+  meta.content = getComputedStyle(document.body).getPropertyValue('--theme-color').replace(' ', '')
 }
 
-/**
- * Update the theme from localstorage
- */
-function updateTheme() {
-    const currentTheme = localStorage.getItem('theme')
-    const meta_theme = document.querySelector('meta[name="theme-color"]')
-    document.body.dataset.theme = currentTheme
-    meta_theme.content = getComputedStyle(document.body).getPropertyValue('--theme-color').replace(' ', '')
-}
+export default function setupTheme() {
+  const toggleSwitch = document.querySelector('.theme-switch-button')
+  const theme = localStorage.getItem('theme') || defaultTheme
 
-// If there is already selected, apply it
-if (currentTheme) {
-    updateTheme()
+  window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", e => {
+    selectTheme(e.matches ? 'light' : 'dark', false)
+  })
+
+  selectTheme(theme, false)
+  toggleSwitch.addEventListener('click', e => {
+    const isLight = Array.from(document.body.classList).includes('light')
+    selectTheme(isLight ? 'dark' : 'light', true)
+  }, false)
 }
-toggleSwitch.addEventListener('click', switchTheme, false)
