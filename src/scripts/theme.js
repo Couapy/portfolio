@@ -1,8 +1,4 @@
-const defaultTheme = window.matchMedia('(prefers-color-scheme: light)') ? 'light' : 'dark'
-
 function selectTheme(theme, save = false) {
-  // Update localstorage
-  if (save) localStorage.setItem('theme', theme)
   // Update body class
   document.body.className = theme
   // Update meta theme-color
@@ -11,16 +7,11 @@ function selectTheme(theme, save = false) {
 }
 
 export default function setupTheme() {
-  const toggleSwitch = document.querySelector('.theme-switch-button')
-  const theme = localStorage.getItem('theme') || defaultTheme
+  const theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
 
   window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", e => {
-    selectTheme(e.matches ? 'light' : 'dark', false)
+    selectTheme(e.matches ? 'light' : 'dark')
   })
 
   selectTheme(theme, false)
-  toggleSwitch.addEventListener('click', e => {
-    const isLight = Array.from(document.body.classList).includes('light')
-    selectTheme(isLight ? 'dark' : 'light', true)
-  }, false)
 }
