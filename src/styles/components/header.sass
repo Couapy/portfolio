@@ -1,9 +1,7 @@
-header
-  background: rgb(2,0,36)
-  background: linear-gradient(212deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)
+@import '../colors'
 
-  background: rgb(46,52,64)
-  background: linear-gradient(212deg, rgba(46,52,64,1) 0%, rgba(59,66,82,1) 42%, rgba(99,110,131,1) 100%)
+header
+  background: var(--header-background-color)
   
   text-align: center
   height: 900px
@@ -14,7 +12,7 @@ header
   align-items: center
   justify-content: center
 
-  color: #ffffff
+  color: #{$nord06}
 
   div
     display: flex

@@ -9,13 +9,13 @@
     $dot-size: 1.5em
     $dot-margin: 1em
     $dot-margin-top: 1.2em
-    // $line-size
     .branch
       position: relative
       width: $branch-size
       margin-right: auto
       margin-bottom: auto
       text-align: right
+      // line
       &::before
         content: ' '
         position: absolute
@@ -24,7 +24,8 @@
         transform: translateX(-50%)
         width: 2px
         height: 100%
-        background: #eceff4
+        background-color: var(--text-secondary-color)
+      // dot
       &::after
         content: ' '
         position: absolute
@@ -34,7 +35,7 @@
         width: $dot-size
         height: $dot-size
         border-radius: 50%
-        background: #5e81ac
+        background: var(--accent-color)
     .branch:nth-of-type(2n)
       margin-left: auto
       margin-right: unset

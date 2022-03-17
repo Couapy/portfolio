@@ -1,0 +1,25 @@
+@import '../colors'
+
+[data-theme="light"]
+  --theme-color: #{$nord01}
+  --background-color: #{$nord06}
+  --header-background-color: linear-gradient(212deg, #{$nord01} 0%, #{$nord02} 42%, #{lighten($nord03, 15%)} 100%)
+  --text-color: #{$nord01}
+  --text-secondary-color: #{$nord04}
+  --accent-color: #{$nord10}
+
+[data-theme="dark"]
+  --theme-color: #{$nord01}
+  --background-color: #{$nord01}
+  --header-background-color: linear-gradient(0deg, #{$nord01} 0%, #{$nord02} 42%, #{lighten($nord03, 10%)} 100%)
+  --text-color: #{$nord06}
+  --text-secondary-color: #{$nord04}
+  --accent-color: #{$nord10}
+
+.theme-switch-button svg
+  display: block
+  width: 80px
+  height: 80px
+
+.theme-switch-button svg path
+  fill: var(--color)
