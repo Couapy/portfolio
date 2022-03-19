@@ -2,11 +2,22 @@
 
 .tree .branch
   margin-bottom: 1.5em
+  .date
+    font-weight: 500
+    font-style: italic
 
-@media screen and (min-width: $breakpoint-lg)
+@media screen and (width <= $breakpoint-lg)
+  .tree .branch
+    margin-top: 1em
+    .date
+      padding-top: 1em
+      border-top: 1px solid var(--background-color-darker)
+
+@media screen and (width > $breakpoint-lg)
   .tree
     $branch-size: calc(50% - 1.75em)
     $dot-size: 1.5em
+    $dot-border-size: .25em
     $dot-margin: 1em
     $dot-margin-top: 1.2em
     .branch
@@ -15,6 +26,12 @@
       margin-right: auto
       margin-bottom: auto
       text-align: right
+      .date
+        position: absolute
+        top: 0
+        left: calc(100% + 2*$dot-margin + $dot-size)
+        margin-top: .375em
+        width: max-content
       // line
       &::before
         content: ' '
@@ -34,12 +51,16 @@
         transform: translateY(-50%)
         width: $dot-size
         height: $dot-size
+        border: $dot-border-size solid var(--accent-color)
         border-radius: 50%
-        background: var(--accent-color)
+        background: var(--background-color)
     .branch:nth-of-type(2n)
       margin-left: auto
       margin-right: unset
       text-align: left
+      .date
+        left: auto
+        right: calc(100% + 2*$dot-margin + $dot-size)
       // line
       &::before
         left: auto
