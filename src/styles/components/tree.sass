@@ -23,7 +23,7 @@
         left: calc(100% + $dot-margin + $dot-size / 2)
         transform: translateX(-50%)
         width: 2px
-        height: 100%
+        height: calc(100% + .3em)
         background-color: var(--text-secondary-color)
       // dot
       &::after
@@ -40,10 +40,12 @@
       margin-left: auto
       margin-right: unset
       text-align: left
+      // line
       &::before
         left: auto
         right: calc(100% + $dot-margin + $dot-size / 2)
         transform: translateX(50%)
+      // dot
       &::after
         left: auto
         right: calc(100% + $dot-margin)

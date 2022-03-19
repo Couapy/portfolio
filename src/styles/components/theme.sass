@@ -3,20 +3,23 @@
 @media (prefers-color-scheme: light)
   body
     --theme-color: #{$nord01}
-    --background-color: #{$nord06}
+    --background-color: #{$nord07}
+    --background-color-darker: $nord05
     --header-background-color: linear-gradient(212deg, #{$nord01} 0%, #{$nord02} 42%, #{lighten($nord03, 15%)} 100%)
+    // --header-background-color: linear-gradient(180deg, #{$nord01} 0%, #{$nord02} 70%, #{$nord07} 100%)
     --text-color: #{$nord01}
-    --text-secondary-color: #{$nord04}
+    --text-secondary-color: #{$nord05}
     --accent-color: #{$nord10}
 
 @media (prefers-color-scheme: dark)
-  body, .dark
+  body
     --theme-color: #{$nord01}
     --background-color: #{$nord01}
+    --background-color-darker: #{darken($nord01, 5%)}
     --header-background-color: linear-gradient(0deg, #{$nord01} 0%, #{$nord02} 42%, #{lighten($nord03, 10%)} 100%)
-    --text-color: #{$nord06}
-    --text-secondary-color: #{$nord04}
-    --accent-color: #{$nord10}
+    --text-color: #{$nord07}
+    --text-secondary-color: #{$nord05}
+    --accent-color: #{$nord09}
 
 .theme-switch-button svg
   display: block
