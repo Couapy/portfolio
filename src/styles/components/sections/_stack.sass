@@ -26,16 +26,18 @@ section#stack
         margin-right: .5em
 
 @media (max-width: $breakpoint-xl)
-  section .stack
-    grid: auto-flow / 1fr 1fr 1fr 1fr
-
-@media (max-width: $breakpoint-lg)
-  section .stack
+  section#stack .stack
     grid: auto-flow / 1fr 1fr 1fr
 
-@media (max-width: $breakpoint-md)
-  section .stack
+@media (max-width: $breakpoint-lg)
+  section#stack .stack
+    grid-column-gap: .5em
+    grid-row-gap: .25em
     grid: auto-flow / 1fr 1fr
+
+@media (max-width: $breakpoint-md)
+  section#stack .stack
+    grid: auto-flow / 1fr
     margin: auto -0.5em
     grid-column-gap: 0
     grid-row-gap: 0
