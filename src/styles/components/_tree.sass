@@ -2,12 +2,9 @@
 
 .tree
   margin-top: 1.5em
-  .branch
-    margin-bottom: 1.5em
-    padding-bottom: 2em
-    .date
-      font-weight: 500
-      font-style: italic
+  .branch .date
+    font-weight: 500
+    font-style: italic
 
 @media (width <= $breakpoint-lg)
   .tree .branch
@@ -18,14 +15,16 @@
 
 @media (width > $breakpoint-lg)
   .tree
-    $branch-size: calc(50% - 1.75em)
-    $dot-size: 1.5em
+    $branch-size: calc(100% - 1.85em)
+    $dot-size: 1.25em
     $dot-border-size: .25em
     $dot-margin: 1em
     $dot-margin-top: 1.2em
     .branch
       position: relative
       width: $branch-size
+      margin-bottom: 1.5em
+      padding-bottom: 2em
       margin-right: auto
       margin-bottom: auto
       text-align: right
@@ -57,7 +56,7 @@
         border: $dot-border-size solid var(--accent-color)
         border-radius: 50%
         background: var(--background-color)
-    .branch:nth-of-type(2n)
+    .branch
       margin-left: auto
       margin-right: unset
       text-align: left
