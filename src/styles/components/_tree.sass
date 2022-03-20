@@ -25,13 +25,12 @@
       width: $branch-size
       margin-bottom: 1.5em
       padding-bottom: 2em
-      margin-right: auto
+      margin-left: auto
       margin-bottom: auto
-      text-align: right
       .date
         position: absolute
         top: 0
-        left: calc(100% + 2*$dot-margin + $dot-size)
+        right: calc(100% + #{2 * $dot-margin + $dot-size})
         margin-top: .375em
         width: max-content
       // line
@@ -39,8 +38,8 @@
         content: ' '
         position: absolute
         top: 0
-        left: calc(100% + $dot-margin + $dot-size / 2)
-        transform: translateX(-50%)
+        right: calc(100% + #{$dot-margin + $dot-size / 2})
+        transform: translateX(50%)
         width: 2px
         height: calc(100% + .3em)
         background-color: var(--text-secondary-color)
@@ -49,27 +48,10 @@
         content: ' '
         position: absolute
         top: $dot-margin-top
-        left: calc(100% + $dot-margin)
+        right: calc(100% + #{$dot-margin})
         transform: translateY(-50%)
         width: $dot-size
         height: $dot-size
         border: $dot-border-size solid var(--accent-color)
         border-radius: 50%
         background: var(--background-color)
-    .branch
-      margin-left: auto
-      margin-right: unset
-      text-align: left
-      .date
-        left: auto
-        right: calc(100% + 2*$dot-margin + $dot-size)
-      // line
-      &::before
-        left: auto
-        right: calc(100% + $dot-margin + $dot-size / 2)
-        transform: translateX(50%)
-      // dot
-      &::after
-        left: auto
-        right: calc(100% + $dot-margin)
-
