@@ -1,26 +1,29 @@
 @import '../../breakpoints'
 
-section .stack
-  $grid-gap: .5em
-  display: grid
-  grid: auto-flow / 1fr 1fr 1fr 1fr 1fr
-  grid-row-gap: $grid-gap
-  grid-colum-gap: $grid-gap
-  margin: auto -1em
+section#stack
+  h3
+    margin-top: 1.5em
 
-  span
-    display: flex
-    align-items: end
-    padding: .75em 1em
-    transition: background .3s ease-in-out
-    border-radius: .25em
-    
-    &:hover
-      background: var(--background-color-darker)
+  .stack
+    display: grid
+    grid: auto-flow / 1fr 1fr 1fr 1fr
+    grid-row-gap: 1em
+    grid-column-gap: .5em
+    margin: auto -1em
 
-    img
-      height: 1.5em
-      margin-right: .5em
+    span
+      display: flex
+      align-items: end
+      padding: .75em 1em
+      transition: background .3s ease-in-out
+      border-radius: .25em
+      
+      &:hover
+        background: var(--background-color-darker)
+
+      img
+        height: 1.5em
+        margin-right: .5em
 
 @media (max-width: $breakpoint-xl)
   section .stack
@@ -33,6 +36,9 @@ section .stack
 @media (max-width: $breakpoint-md)
   section .stack
     grid: auto-flow / 1fr 1fr
+    margin: auto -0.5em
+    grid-column-gap: 0
+    grid-row-gap: 0
 
     span
       padding: .5em .75em
