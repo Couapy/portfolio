@@ -1,0 +1,34 @@
+@use 'sass:map'
+
+$animation-strength: 4rem
+
+.reveal-loaded .reveal
+  [class*="reveal"],
+  &[class*="reveal"]
+    opacity: 0
+
+  &.reveal-ready
+    [class*="reveal-"],
+    &[class*="reveal-"]
+      opacity: 1
+      animation-duration: 1s
+      animation-timing-function: cubic-bezier(.5, 0, 0, 1)
+      animation-fill-mode: both
+      animation-name: reveal_animation_bottom
+
+    @for $i from 1 through 6
+      .reveal-#{$i},
+      &.reveal-#{$i}
+        animation-delay: 0.1s * $i
+
+@media (prefers-reduced-motion: reduce)
+  [class*="reveal-"]
+    animation: none !important
+
+@keyframes reveal_animation_bottom
+  from
+    opacity: 0
+    transform: translateY($animation-strength)
+  to
+    opacity: 1
+    transform: translateY(0)
