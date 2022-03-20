@@ -5,8 +5,8 @@
   "repository": "git@github.com:Couapy/portfolio.git",
   "license": "MIT",
   "scripts": {
-    "build": "sass src/styles/index.sass:src/styles/dist/index.css",
-    "build:watch": "sass --watch src/styles/index.sass:src/styles/dist/index.css",
+    "build": "npx sass src/styles/index.sass:src/styles/dist/index.css",
+    "build:watch": "npx sass --watch src/styles/index.sass:src/styles/dist/index.css",
     "postinstall": "yarn run build"
   },
   "devDependencies": {

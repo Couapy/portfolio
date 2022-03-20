@@ -1,3 +1,5 @@
+@use 'sass:math'
+
 @import '../breakpoints'
 
 .tree
@@ -27,6 +29,8 @@
       padding-bottom: 2em
       margin-left: auto
       margin-bottom: auto
+      &:last-of-type
+        padding-bottom: 0
       .date
         position: absolute
         top: 0
@@ -38,7 +42,7 @@
         content: ' '
         position: absolute
         top: 0
-        right: calc(100% + #{$dot-margin + $dot-size / 2})
+        right: calc(100% + #{$dot-margin + math.div($dot-size, 2)})
         transform: translateX(50%)
         width: 2px
         height: calc(100% + .3em)
