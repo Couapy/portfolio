@@ -1,0 +1,29 @@
+@import '../colors'
+
+@media (prefers-color-scheme: light)
+  body
+    --theme-color: #{$nord01}
+    --background-color: #{$nord07}
+    --background-color-darker: #{$nord05}
+    --header-background-color: #{$nord04}
+    --text-color: #{$nord01}
+    --text-secondary-color: #{$nord05}
+    --accent-color: #{$nord10}
+
+@media (prefers-color-scheme: dark)
+  body
+    --theme-color: #{$nord01}
+    --background-color: #{$nord01}
+    --background-color-darker: #{darken($nord01, 5%)}
+    --header-background-color: #{darken($nord01, 5%)}
+    --text-color: #{$nord07}
+    --text-secondary-color: #{$nord05}
+    --accent-color: #{$nord09}
+
+.theme-switch-button svg
+  display: block
+  width: 80px
+  height: 80px
+
+.theme-switch-button svg path
+  fill: var(--color)

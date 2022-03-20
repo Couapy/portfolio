@@ -1,0 +1,75 @@
+@import '../breakpoints'
+
+.tree
+  margin-top: 1.5em
+  .branch .date
+    font-weight: 500
+    font-style: italic
+
+@media (width <= $breakpoint-lg)
+  .tree .branch
+    margin-top: 1em
+    .date
+      padding-top: 1em
+      border-top: 1px solid var(--background-color-darker)
+
+@media (width > $breakpoint-lg)
+  .tree
+    $branch-size: calc(100% - 1.85em)
+    $dot-size: 1.25em
+    $dot-border-size: .25em
+    $dot-margin: 1em
+    $dot-margin-top: 1.2em
+    .branch
+      position: relative
+      width: $branch-size
+      margin-bottom: 1.5em
+      padding-bottom: 2em
+      margin-right: auto
+      margin-bottom: auto
+      text-align: right
+      .date
+        position: absolute
+        top: 0
+        left: calc(100% + 2*$dot-margin + $dot-size)
+        margin-top: .375em
+        width: max-content
+      // line
+      &::before
+        content: ' '
+        position: absolute
+        top: 0
+        left: calc(100% + $dot-margin + $dot-size / 2)
+        transform: translateX(-50%)
+        width: 2px
+        height: calc(100% + .3em)
+        background-color: var(--text-secondary-color)
+      // dot
+      &::after
+        content: ' '
+        position: absolute
+        top: $dot-margin-top
+        left: calc(100% + $dot-margin)
+        transform: translateY(-50%)
+        width: $dot-size
+        height: $dot-size
+        border: $dot-border-size solid var(--accent-color)
+        border-radius: 50%
+        background: var(--background-color)
+    .branch
+      margin-left: auto
+      margin-right: unset
+      text-align: left
+      .date
+        left: auto
+        right: calc(100% + 2*$dot-margin + $dot-size)
+      // line
+      &::before
+        left: auto
+        right: calc(100% + $dot-margin + $dot-size / 2)
+        transform: translateX(50%)
+      // dot
+      &::after
+        left: auto
+        right: calc(100% + $dot-margin)
+

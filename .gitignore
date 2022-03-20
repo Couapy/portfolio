@@ -1,3 +1,4 @@
-.vscode
-*.dev.js
-*.css
+.sass-cache
+node_modules
+dist
+build
