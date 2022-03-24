@@ -1,15 +1,15 @@
 {
   "name": "portfolio",
   "version": "2.0.0",
-  "main": "index.js",
   "repository": "git@github.com:Couapy/portfolio.git",
   "license": "MIT",
   "scripts": {
-    "build": "npx sass src/styles/index.sass:src/styles/dist/index.css",
-    "build:watch": "npx sass --watch src/styles/index.sass:src/styles/dist/index.css",
-    "postinstall": "yarn run build"
+    "build": "parcel build src/index.html",
+    "dev": "parcel src/index.html"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "2.4.0",
+    "parcel": "^2.4.0",
     "sass": "^1.49.7"
   }
 }

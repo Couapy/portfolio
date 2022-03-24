@@ -1,4 +1,4 @@
-.sass-cache
-node_modules
-dist
+.parcel-cache
 build
+dist
+node_modules
