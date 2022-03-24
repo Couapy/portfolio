@@ -5,11 +5,20 @@
   "repository": "git@github.com:Couapy/portfolio.git",
   "license": "MIT",
   "scripts": {
-    "build": "npx sass src/styles/index.sass:src/styles/dist/index.css",
-    "build:watch": "npx sass --watch src/styles/index.sass:src/styles/dist/index.css",
-    "postinstall": "yarn run build"
+    "serve": "webpack serve",
+    "dev": "NODE_ENV=development webpack-dev-server --hot",
+    "build": "NODE_ENV=production webpack --mode production",
+    "build:watch": "NODE_ENV=development webpack --progress --watch"
   },
   "devDependencies": {
-    "sass": "^1.49.7"
+    "css-loader": "^6.7.1",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }
