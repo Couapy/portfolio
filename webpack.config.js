@@ -60,7 +60,7 @@ module.exports = {
   ],
   devServer: {
     static: { directory: path.resolve(__dirname, 'build') },
-    watchFiles: ['./src/index.html'],
+    watchFiles: ['./src/**/*'],
     compress: true,
     port: 8000,
   },
