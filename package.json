@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "parcel build src/index.html",
-    "dev": "parcel src/index.html"
+    "dev": "parcel serve src/index.html"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.4.0",
