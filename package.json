@@ -4,7 +4,7 @@
   "repository": "git@github.com:Couapy/portfolio.git",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
     "dev": "parcel serve src/index.html"
   },
   "devDependencies": {
