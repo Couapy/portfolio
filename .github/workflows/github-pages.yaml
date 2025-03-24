@@ -12,11 +12,11 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.2.2
         with:
           submodules: true
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4.3.0
         with:
           node-version: 16
       - name: Install Dependencies
@@ -24,10 +24,10 @@ jobs:
       - name: Build
         run: yarn build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: "dist"
           if-no-files-found: error
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4.0.5
